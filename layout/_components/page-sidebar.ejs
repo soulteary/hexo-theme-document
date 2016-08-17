@@ -1,0 +1,28 @@
+<div class="sidebar-overlay"></div>
+
+<aside id="sidebar" class="sidebar sidebar-default sidebar-fixed-right" role="navigation">
+
+    <div class="sidebar-header header-cover">
+        <div class="sidebar-image">
+            <img src="/assets/images/logo-header-black@2x-c6b59644.png" width="50px" height="56px">
+        </div>
+    </div>
+
+    <ul class="main nav sidebar-nav">
+        <li class="first"><a href="<%- url_for(config.intro_dir + '/') %>">简介</a></li>
+        <li class=""><a href="<%- url_for(config.document_dir + '/') %>">文档</a></li>
+        <li class=""><a href="<%- url_for(config.components_dir + '/') %>">组件</a></li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <ul class="external nav sidebar-nav">
+        <% if (config.menu.download.enable) { %>
+        <li class="first"><a class="v-btn gray sml" href="<%- url_for(config.download_dir + '/') %>"><%- partial('header/icon-download') %>下载</a></li>
+        <% } %>
+
+        <% if (config.menu.github.enable) { %>
+        <li class=""><a class="v-btn gray sml" href="<%- config.menu.github.url %>"><%- partial('header/icon-github') %>GitHub</a></li>
+        <% } %>
+    </ul>
+</aside>

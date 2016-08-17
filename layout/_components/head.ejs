@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%
+    var title = page.title;
+
+    if (is_archive()){
+        title = __('archive_a');
+
+        if (is_month()){
+            title += ': ' + page.year + '/' + page.month;
+        } else if (is_year()){
+            title += ': ' + page.year;
+        }
+    } else if (is_category()){
+        title = __('category') + ': ' + page.category;
+    } else if (is_tag()){
+        title = __('tag') + ': ' + page.tag;
+    }
+    %>
+    <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+    <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
+    <% if (theme.rss){ %>
+    <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
+    <% } %>
+    <% if (theme.favicon){ %>
+    <link rel="icon" href="<%- theme.favicon %>">
+    <% } %>
+    <% if (config.highlight.enable){ %>
+    <% } %>
+    <%- css('css/bootstrap.css') %>
+    <%- css('css/application.css') %>
+    <!--[if lt IE 9]><script src="/assets/javascripts/ie-compat-45b62f38.js"></script><![endif]-->
+
+</head>

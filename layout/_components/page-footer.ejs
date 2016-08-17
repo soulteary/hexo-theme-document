@@ -1,0 +1,37 @@
+<div class="skew-item ">
+    <div id="footer" class="navigation black">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="footer-links">
+                        <ul class="main-links nav navbar-nav">
+                            <li><a href="<%- url_for(config.intro_dir + '/') %>">简介</a></li>
+                            <li><a href="<%- url_for(config.document_dir + '/') %>">文档</a></li>
+                            <li><a href="<%- url_for(config.components_dir + '/') %>">组件</a></li>
+                        </ul>
+                        <ul class="external-links nav navbar-nav">
+                            <% if (config.menu.download.enable) { %>
+                            <li class="first download"><a href="<%- url_for(config.download_dir + '/') %>"><%- partial('header/icon-download') %>下载</a></li>
+                            <% } %>
+
+                            <% if (config.menu.github.enable) { %>
+                            <li class="github"><a href="<%- config.menu.github.url %>"><%- partial('header/icon-github') %>GitHub</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div class="footer-hashi pull-right">
+                        <div class="">
+                            <a class="hashicorp-project black" href="https://www.hashicorp.com">
+                                <span class="project-text">A </span>
+                                <%- partial('header/icon-by') %>
+                                <span class="project-text">Project</span>
+                                <%- partial('header/icon-logo') %>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skew-item" id="footer-bg"></div>
+        </div>
+    </div>
+</div>

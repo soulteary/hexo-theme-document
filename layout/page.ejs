@@ -1,0 +1,7 @@
+<% if (is_document()) { %>
+    <%- partial('_page/posts-archive', {post: page}) %>
+<% } else if (is_intro()) { %>
+    <%- partial('_page/intro', {post: page, options: {use_nav: true, use_toc: true}}) %>
+<% } else { %>
+    <%- partial('_partial/article', {post: page, index: false}) %>
+<% } %>

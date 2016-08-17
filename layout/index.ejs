@@ -1,0 +1,5 @@
+<% if (is_homepage()) { %>
+    <%- partial('_page/homepage') %>
+<% } else { %>
+    <%- partial('_partial/archive', {pagination: 2, index: true}) %>
+<% } %>

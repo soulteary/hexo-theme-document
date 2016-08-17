@@ -1,0 +1,47 @@
+
+<body id="page-Documentation" class="page-Documentation layout-docs page-sub -displaying-bnr">
+
+<%- partial('../_components/page-header') %>
+
+<%- partial('../_components/page-sidebar') %>
+
+<div class="container">
+
+    <div class="col-md-4"><%- partial('../_components/document/sidebar') %></div>
+
+    <div id="main-content" class="col-md-8" role="main">
+        <div class="bs-docs-section">
+
+            <%- url_for(config.document_dir + '/') %>
+            <%
+            var post = page;
+            %>
+            "<%= post.layout %>-<%= post.slug %>"
+            "<%- post.permalink %>"
+
+
+            <h1 id="terraform-documentation">
+                <% if (post.title){ %>
+                <%- post.title %>
+                <% } else { %>
+                未命名文档
+                <% } %>
+                <span class="pull-right" style="font-size: 12px">
+                    创建时间:<time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, null) %></time>
+                    最后编辑:<time datetime="<%= date_xml(post.updated) %>" itemprop="datePublished"><%= date(post.updated, null) %></time>
+                </span>
+            </h1>
+
+            <%- post.content %>
+
+        </div>
+    </div>
+</div>
+
+<%- partial('../_components/page-footer') %>
+
+<%- js('js/jquery-3.1.0.min') %>
+<%- js('js/application') %>
+
+
+</body>

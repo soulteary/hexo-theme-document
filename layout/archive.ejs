@@ -1,0 +1,7 @@
+<% if (is_archiveIndex()) { %>
+<%- partial('_page/posts-archive') %>
+<% } else { %>
+<%- partial('_partial/archive', {pagination: config.archive, index: true}) %>
+<% } %>
+
+
